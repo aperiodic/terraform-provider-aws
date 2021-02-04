@@ -87,7 +87,9 @@ The following arguments are supported:
 * `override_json` (Optional) - An IAM policy document to import and override the
   current policy document.  Statements with non-blank `sid`s in the override
   document will overwrite statements with the same `sid` in the current document.
-  Statements without an `sid` cannot be overwritten.
+  Statements with non-blank `sid`s in the override document that do not match an
+  `sid` in the current document will be added to the current document.  Statements
+  without an `sid` cannot be overwritten.
 * `statement` (Optional) - A nested configuration block (described below)
   configuring one *statement* to be included in the policy document.
 * `version` (Optional) - IAM policy document version. Valid values: `2008-10-17`, `2012-10-17`. Defaults to `2012-10-17`. For more information, see the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
